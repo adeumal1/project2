@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="DriversCars" content="Made with JS-DOM">
+    <meta name="author" content="Aleix Deumal">
+    <meta name="description" content="Cars Seller">
+    <meta name="referrer" content="unsafe-url">
+    <meta name="robots" content="index, follow">
+    <!-- SPEED -->
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <!-- LINK -->
+    <link rel="me" href="#">
+    <link rel="canonical" href="#">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/di9oyejfn/image/upload/v1683184163/project2-js-dom/cooltext434836170052696_lzxnel.png" sizes="50x50">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css">
+    <!-- PERFORMANCE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="preload" as="style" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- TITLE -->
+    <title>Vechículos alta gama | Driverscarsbcn, consecionario de lujo</title>
+</head>
+<body>
+    <header>
+        <div class="dc-navbar">
+            <a href=""><img class="image-logo" src="https://res.cloudinary.com/di9oyejfn/image/upload/v1683183830/project2-js-dom/logoSinClaimw359_mu0tnj.png" alt="logo-driverscars" style="width: 359px;"></a>
+            <div class="dc-navbar-hamburger">
+                <input type="checkbox" id="hamburger">
+                <label for="hamburger" class="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+    <div class="dc-main">
+        <div class="dc-side-filter">
+            <span>Búsqueda</span>
+            <form action="#">
+                <select name="marca" id="marca">
+                  <option value="astonmartin">Aston Martin</option>
+                  <option value="audi">Audi</option>
+                  <option value="bmw">BMW</option>
+                  <option value="ferrari">Ferrari</option>
+                  <option value="jaguar">Jaguar</option>
+                  <option value="lamborghini">Lamborghini</option>
+                  <option value="mercedesbenz">Mercedes-Benz</option>
+                  <option value="porsche">Porsche</option>
+                </select>
+
+                <select name="combustible" id="combustible">
+                  <option value="diesel">Diesel</option>
+                  <option value="java">Gasolina</option>
+                  <option value="golang">Híbrido</option>
+                </select>
+                <input type="reset" value="RESTABLECER TODO"/>
+          </form>
+        </div>
+        <div class="dc-cars-section" id="dc-cars">
+
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
