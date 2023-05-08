@@ -42,7 +42,7 @@ body {
     background: var(--dc-color-n-100);
     position: fixed;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     top: 0;
     left: 0;
     right: 0;
@@ -52,9 +52,38 @@ body {
     z-index: 9999;
 }
 
+.dc-navbar-img {
+    display: flex;
+    align-items: center;
+}
+
+.hiddenNav {
+    display: none;
+}
+
 .dc-navbar-hamburger {
     position:fixed;
     right:10px;
+}
+
+.dc-navbar-mainlist ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dc-navbar-mainlist ul li a{
+    text-decoration: none;
+    color: #fff;
+    line-height: 65px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 17px;
+}
+.dc-navbar-mainlist ul li a:hover{
+    color: #c8c8c8;
 }
 
 .image-logo {
@@ -116,6 +145,25 @@ transform: translateY(-12px) rotate(45deg);
     flex-direction: column;
 }
 
+.dc-side-filter form select {
+    height: 40px;
+    line-height: 40px;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: 1px solid #3350b8;
+    color: #232628;
+}
+
+.dc-side-filter form select option {
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
 .dc-cars-section {
     display: flex;
     flex-direction: column;
@@ -123,7 +171,7 @@ transform: translateY(-12px) rotate(45deg);
     margin-top: 3%;
 }
 
-.dc-cars-section img {
+.dc-single-dataMetaImgDiv img {
     width: 100%;
     height: auto;
 }
@@ -137,6 +185,11 @@ transform: translateY(-12px) rotate(45deg);
     background: var(--dc-color-content-car);
     width: 90%;
     height: auto;
+}
+
+.dc-single-dataMetaTopDiv {
+    display: flex;
+    flex-direction: column;
 }
 
 .dc-single-car__brandTitle {
@@ -201,3 +254,85 @@ transform: translateY(-12px) rotate(45deg);
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+.dc-single-dataMeta {
+    display: flex;
+    flex-direction: column;
+}
+
+.dc-single-dataMetaBottomDiv {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 1080px) { 
+    .dc-navbar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+       
+    .dc-navbar-hamburger {
+        display: none;
+    }
+
+    .hiddenNav {
+        display: inline
+    }
+
+    .dc-navbar-mainlist ul {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .dc-navbar-mainlist ul li {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .dc-single-car {    
+        flex-direction: row;
+        justify-content: left;
+        padding: 0%;
+    }
+
+    .dc-single-dataMetaTopDiv {
+        width: 100%;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        height: 100px;
+    }
+    
+    .dc-single-car__price {
+       margin: 0;
+       margin-top: 21px;
+       margin-right: 21px;
+       height: min-content;
+    }
+    .dc-single-car__table {
+        width: 100%;
+        height: min-content;
+        border-bottom: 0px;
+    }
+
+    .dc-single-buttonSeeMore {
+        display: none;
+    }
+
+    .dc-single-dataMeta {
+        margin-left: 30px;
+        width: 100%;
+    }
+
+    .dc-single-dataMetaImgDiv {
+        margin: 0;
+    }
+    .dc-single-dataMetaImgDiv img {
+        object-fit: fill;
+    }
+    
+    .dc-side-filter form {
+        display: flex;
+        flex-direction: row;
+    }
+}
+

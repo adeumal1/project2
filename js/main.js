@@ -1,4 +1,4 @@
-const  cars = [
+const cars = [
     {
         brand: 'Porsche',
         model: 'Cayenne Coupé E-Hybrid Platimun Edition', 
@@ -29,15 +29,64 @@ const  cars = [
         price: 118900,
         img:  'https://res.cloudinary.com/di9oyejfn/image/upload/v1683195498/project2-js-dom/1-6-798x466_wcxyzw.jpg',
     },
+    {
+        brand: 'Porsche',
+        model: '992 GT3 ', 
+        year: 2022,
+        kilometers: 2950, 
+        hp: 510,
+        fueltype: 'Gasolina',
+        price: 268900,
+        img:  'https://res.cloudinary.com/di9oyejfn/image/upload/v1683559298/project2-js-dom/1-4-798x466_atfcxr.jpg',
+    },
 ];
 
 
+const $$hamburger = document.getElementById("hamburger");
+const $$mainlistNavigator = document.getElementById("dc-navbar-mainlist");
+const $$brandSelect = document.getElementById("marca"); 
 
+$$hamburger.onclick = function() {
+    if (this.checked) {
+        $$mainlistNavigator.classList.remove("hiddenNav");
+    } else {
+        $$mainlistNavigator.classList.add("hiddenNav");
+    }
+};
 
-const printCarsOnSale = () => {
-    cars.forEach((car) => {
-        const $$onSaleCarsList = document.getElementById("dc-cars");
+const fillFilterBrand = () => {
+    const uniqueBrands = new Set(cars.map(car => car.brand));
+    for (var brand of uniqueBrands) {
+        const $$selectBrand = document.createElement("option");
+        $$selectBrand.value = brand;
+        $$selectBrand.text = brand;
+        $$brandSelect.appendChild($$selectBrand);
+    }
+};
+fillFilterBrand();
 
+function filterBrandCar() {
+    const brandCarUser = cars.filter((car) =>{
+        if ($$brandSelect.value === car.brand) {
+            return car;
+        } else if ($$brandSelect.value === "marca") {
+            return cars;
+        }
+    });
+    printCarsOnSale(brandCarUser);
+}
+
+$$brandSelect.addEventListener("click", () => {
+    filterBrandCar();
+});
+
+const printCarsOnSale = (brandCarUser) => {
+    const $$onSaleCarsList = document.getElementById("dc-cars");
+    console.log(brandCarUser);
+    $$onSaleCarsList.innerHTML = "";
+
+    brandCarUser.forEach((car) => {
+        
         //create new elements
         const $$divCar = document.createElement("div");
         const CarImage = new Image();
@@ -49,8 +98,10 @@ const printCarsOnSale = () => {
         const $$fuel = document.createElement("span");
         const $$buttonSeeMore = document.createElement("a");
         const $$buttonSeeMoreDiv = document.createElement("div");
-
-
+        const $$dataMetaTopDiv = document.createElement("div");
+        const $$dataMetaDiv = document.createElement("div");
+        const $$dataMetaBottomDiv = document.createElement("div");
+        const $$dataMetaImgDiv = document.createElement("div");
 
         //añadir clases
         $$divCar.classList.add('dc-single-car');
@@ -62,8 +113,11 @@ const printCarsOnSale = () => {
         $$fuel.classList.add('dc-single-car__table');
         $$buttonSeeMore.classList.add('dc-single-buttonSeeMore');
         $$buttonSeeMoreDiv.classList.add('dc-single-divButtonSeeMore');
+        $$dataMetaDiv.classList.add('dc-single-dataMeta');
+        $$dataMetaTopDiv.classList.add('dc-single-dataMetaTopDiv');
+        $$dataMetaBottomDiv.classList.add('dc-single-dataMetaBottomDiv');
+        $$dataMetaImgDiv.classList.add('dc-single-dataMetaImgDiv');   
 
-        
         //merge with elements and collect info from objects
         CarImage.src = car.img;
         $$brand.innerHTML = `${car.brand} ${car.model}`;
@@ -74,22 +128,23 @@ const printCarsOnSale = () => {
         $$fuel.innerHTML = ` <i class="fa-solid fa-gas-pump"></i> Combustible <strong>${car.fueltype}</strong>`;
         $$buttonSeeMore.innerHTML = `VER MÁS`;
 
-        
         //insert on HTML5
         $$buttonSeeMoreDiv.appendChild($$buttonSeeMore);
-        $$divCar.appendChild(CarImage);
-        $$divCar.appendChild($$priceCar);
-        $$divCar.appendChild($$brand);
-        $$divCar.appendChild($$year);
-        $$divCar.appendChild($$kilometers);
-        $$divCar.appendChild($$hp);
-        $$divCar.appendChild($$fuel);
-        $$divCar.appendChild($$buttonSeeMoreDiv);
+        $$dataMetaTopDiv.appendChild($$priceCar);
+        $$dataMetaTopDiv.appendChild($$brand);
+        $$dataMetaImgDiv.appendChild(CarImage);
+        $$dataMetaBottomDiv.appendChild($$year);
+        $$dataMetaBottomDiv.appendChild($$kilometers);
+        $$dataMetaBottomDiv.appendChild($$hp);
+        $$dataMetaBottomDiv.appendChild($$fuel);
+        $$divCar.appendChild($$dataMetaImgDiv);
+        $$dataMetaDiv.appendChild($$dataMetaTopDiv);
+        $$dataMetaDiv.appendChild($$dataMetaBottomDiv);
+        $$dataMetaDiv.appendChild($$buttonSeeMoreDiv);
+        $$divCar.appendChild($$dataMetaDiv);
 
         $$onSaleCarsList.appendChild($$divCar);
-        
-        
     });
 };
 
-printCarsOnSale();
+filterBrandCar();

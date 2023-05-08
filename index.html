@@ -31,7 +31,16 @@
 <body>
     <header>
         <div class="dc-navbar">
-            <a href=""><img class="image-logo" src="https://res.cloudinary.com/di9oyejfn/image/upload/v1683183830/project2-js-dom/logoSinClaimw359_mu0tnj.png" alt="logo-driverscars" style="width: 359px;"></a>
+            <div class="dc-navbar-img">
+                <a href=""><img class="image-logo" src="https://res.cloudinary.com/di9oyejfn/image/upload/v1683183830/project2-js-dom/logoSinClaimw359_mu0tnj.png" alt="logo-driverscars" style="width: 359px;"></a>
+            </div>
+            <div class="dc-navbar-mainlist hiddenNav" id="dc-navbar-mainlist">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Vechículos</a></li>
+                    <li><a href="#">Empresa</a></li>
+                </ul>
+            </div>
             <div class="dc-navbar-hamburger">
                 <input type="checkbox" id="hamburger">
                 <label for="hamburger" class="hamburger">
@@ -47,21 +56,13 @@
             <span>Búsqueda</span>
             <form action="#">
                 <select name="marca" id="marca">
-                  <option value="astonmartin">Aston Martin</option>
-                  <option value="audi">Audi</option>
-                  <option value="bmw">BMW</option>
-                  <option value="ferrari">Ferrari</option>
-                  <option value="jaguar">Jaguar</option>
-                  <option value="lamborghini">Lamborghini</option>
-                  <option value="mercedesbenz">Mercedes-Benz</option>
-                  <option value="porsche">Porsche</option>
+                  <option selected="selected" value="marca">Marca</option>
                 </select>
 
-                <select name="combustible" id="combustible">
-                  <option value="diesel">Diesel</option>
-                  <option value="java">Gasolina</option>
-                  <option value="golang">Híbrido</option>
-                </select>
+                <!-- <select name="combustible" id="combustible">
+                  <option value="combustible">Combustible</option>
+                </select> -->
+
                 <input type="reset" value="RESTABLECER TODO"/>
           </form>
         </div>
