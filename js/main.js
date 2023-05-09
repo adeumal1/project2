@@ -89,7 +89,9 @@ $$filterPrice.addEventListener("click", () => {
 });
 
 $$reset.addEventListener("click", () => {
+    $$brandSelect.value = "marca";
     $$priceInput.value = 1000000;
+    filterCar();
 });
 
 const printCarsOnSale = (CarUser) => {
