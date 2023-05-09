@@ -130,6 +130,7 @@ transform: translateY(-12px) rotate(45deg);
 }
 
 .dc-main {
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -137,12 +138,14 @@ transform: translateY(-12px) rotate(45deg);
 }
 
 .dc-side-filter {
-    margin-top: 150px;
+    margin-top: 15px;
+    min-width: 90%;
 }
 
 .dc-side-filter form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .dc-side-filter form select {
@@ -150,8 +153,54 @@ transform: translateY(-12px) rotate(45deg);
     line-height: 40px;
     transition: all 0.3s ease;
     background: transparent;
-    border: 1px solid #3350b8;
+    border: 1px solid var(--dc-color-background-button);
     color: #232628;
+    margin-bottom: 20px;
+}
+
+.dc-side-filter form input[type=number] {
+    height: 36px;
+    /* line-height: 40px; */
+    transition: all 0.3s ease;
+    background: transparent;
+    border: 1px solid var(--dc-color-background-button);
+    color: #232628;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.filter-price {
+    display: flex;
+    flex-direction: row;
+}
+
+.dc-side-filter form input[type=reset] {
+    height: 40px;
+    width: 100%;
+    background-color: #3350b8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
+    font-weight: 700;
+}
+
+
+
+.dc-side-filter form input[type=button] {
+    height: 40px;
+    background: var(--dc-color-background-button);
+    border: none;
+    color: white;
+    font-weight: 700;
+    width: fit-content;
+}
+
+.dc-side-filter form input[type=reset]:hover, .dc-side-filter form input[type=button]:hover {
+    background-color: var(--dc-color-background-button-hover);
 }
 
 .dc-side-filter form select option {
@@ -169,6 +218,7 @@ transform: translateY(-12px) rotate(45deg);
     flex-direction: column;
     align-items: center;
     margin-top: 3%;
+    width: 90%;
 }
 
 .dc-single-dataMetaImgDiv img {
@@ -183,7 +233,7 @@ transform: translateY(-12px) rotate(45deg);
     margin-top: 30px;
     margin-bottom: 30px;
     background: var(--dc-color-content-car);
-    width: 90%;
+    width: 100%;
     height: auto;
 }
 
@@ -266,6 +316,10 @@ transform: translateY(-12px) rotate(45deg);
 }
 
 @media only screen and (min-width: 1080px) { 
+    .dc-single-divButtonSeeMore {
+        display: none;
+    }
+
     .dc-navbar {
         flex-direction: row;
         justify-content: space-between;
@@ -314,10 +368,6 @@ transform: translateY(-12px) rotate(45deg);
         border-bottom: 0px;
     }
 
-    .dc-single-buttonSeeMore {
-        display: none;
-    }
-
     .dc-single-dataMeta {
         margin-left: 30px;
         width: 100%;
@@ -333,6 +383,31 @@ transform: translateY(-12px) rotate(45deg);
     .dc-side-filter form {
         display: flex;
         flex-direction: row;
+        margin-right: 20px;
     }
+
+    .dc-side-filter select {
+        margin-right: 20px;
+        width: 30%;
+    }
+    .dc-side-filter input {
+        margin-right: 20px;
+        width: 30%;
+    }
+
+    .filter-price {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .dc-side-filter form input[type=button] {
+        width: auto;
+        margin-left: -20px;
+    }
+
+    .dc-side-filter form input[type=reset] {
+        width: 30%;
+    }
+    
 }
 

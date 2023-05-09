@@ -53,15 +53,15 @@
     </header>
     <div class="dc-main">
         <div class="dc-side-filter">
-            <span>Búsqueda</span>
             <form action="#">
                 <select name="marca" id="marca">
                   <option selected="selected" value="marca">Marca</option>
                 </select>
-
-                <!-- <select name="combustible" id="combustible">
-                  <option value="combustible">Combustible</option>
-                </select> -->
+                <div class="filter-price">
+                    <input type="number" name="price" id="price" min="30000">
+                    <input type="button" value="PRECIO MAXIMO" name="fprice" id="fprice">
+                </div>
+                
 
                 <input type="reset" value="RESTABLECER TODO"/>
           </form>

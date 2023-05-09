@@ -45,6 +45,8 @@ const cars = [
 const $$hamburger = document.getElementById("hamburger");
 const $$mainlistNavigator = document.getElementById("dc-navbar-mainlist");
 const $$brandSelect = document.getElementById("marca"); 
+const $$priceInput = document.getElementById("price"); 
+const $$filterPrice = document.getElementById("fprice"); 
 
 $$hamburger.onclick = function() {
     if (this.checked) {
@@ -65,11 +67,13 @@ const fillFilterBrand = () => {
 };
 fillFilterBrand();
 
-function filterBrandCar() {
+function filterCar() {
     const brandCarUser = cars.filter((car) =>{
-        if ($$brandSelect.value === car.brand) {
+        if ($$priceInput.value === ""){
+            return cars;
+        } else if ($$brandSelect.value === car.brand && $$priceInput.value > car.price) {
             return car;
-        } else if ($$brandSelect.value === "marca") {
+        } else if ($$brandSelect.value === "marca" && $$priceInput.value > car.price) {
             return cars;
         }
     });
@@ -77,15 +81,18 @@ function filterBrandCar() {
 }
 
 $$brandSelect.addEventListener("click", () => {
-    filterBrandCar();
+    filterCar();
 });
 
-const printCarsOnSale = (brandCarUser) => {
+$$filterPrice.addEventListener("click", () => {
+    filterCar();
+});
+
+const printCarsOnSale = (CarUser) => {
     const $$onSaleCarsList = document.getElementById("dc-cars");
-    console.log(brandCarUser);
     $$onSaleCarsList.innerHTML = "";
 
-    brandCarUser.forEach((car) => {
+    CarUser.forEach((car) => {
         
         //create new elements
         const $$divCar = document.createElement("div");
@@ -147,4 +154,4 @@ const printCarsOnSale = (brandCarUser) => {
     });
 };
 
-filterBrandCar();
+filterCar();
