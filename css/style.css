@@ -174,32 +174,16 @@ transform: translateY(-12px) rotate(45deg);
     flex-direction: row;
 }
 
-.dc-side-filter form input[type=reset] {
-    height: 40px;
-    width: 100%;
-    background-color: #3350b8;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    text-align: center;
-    font-weight: 700;
-}
-
-
-
 .dc-side-filter form input[type=button] {
     height: 40px;
     background: var(--dc-color-background-button);
     border: none;
     color: white;
     font-weight: 700;
-    width: fit-content;
+    width: 100%;
 }
 
-.dc-side-filter form input[type=reset]:hover, .dc-side-filter form input[type=button]:hover {
+.dc-side-filter form input[type=button]:hover {
     background-color: var(--dc-color-background-button-hover);
 }
 
@@ -402,7 +386,6 @@ transform: translateY(-12px) rotate(45deg);
 
     .dc-side-filter form input[type=button] {
         width: auto;
-        margin-left: -20px;
     }
 
     .dc-side-filter form input[type=reset] {

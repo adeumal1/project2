@@ -46,7 +46,9 @@ const $$hamburger = document.getElementById("hamburger");
 const $$mainlistNavigator = document.getElementById("dc-navbar-mainlist");
 const $$brandSelect = document.getElementById("marca"); 
 const $$priceInput = document.getElementById("price"); 
-const $$filterPrice = document.getElementById("fprice"); 
+const $$filterPrice = document.getElementById("fprice");
+const $$reset = document.getElementById("reset");
+$$priceInput.value = 1000000;
 
 $$hamburger.onclick = function() {
     if (this.checked) {
@@ -69,9 +71,7 @@ fillFilterBrand();
 
 function filterCar() {
     const brandCarUser = cars.filter((car) =>{
-        if ($$priceInput.value === ""){
-            return cars;
-        } else if ($$brandSelect.value === car.brand && $$priceInput.value > car.price) {
+        if ($$brandSelect.value === car.brand && $$priceInput.value > car.price) {
             return car;
         } else if ($$brandSelect.value === "marca" && $$priceInput.value > car.price) {
             return cars;
@@ -86,6 +86,10 @@ $$brandSelect.addEventListener("click", () => {
 
 $$filterPrice.addEventListener("click", () => {
     filterCar();
+});
+
+$$reset.addEventListener("click", () => {
+    $$priceInput.value = 1000000;
 });
 
 const printCarsOnSale = (CarUser) => {
